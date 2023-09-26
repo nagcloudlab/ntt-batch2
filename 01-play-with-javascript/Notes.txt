@@ -1,0 +1,66 @@
+
+----------------------------------------------------
+
+
+why javascript is best ?
+
+-> FP + OOP
+-> flexibility with dynamic typing
+-> single-threaded process 
+
+what kind of application?
+
+    - web-UI development
+    - server-side development
+    - mobile development
+    - desktop development
+
+
+how to run javascript program(s) ?
+
+    -> javascript-interpreter/engine/runtime
+
+
+browser environment:
+
+    - Chrome    ( v8 )
+    - Firefox   ( rhino / spidermonkey )
+    - IE / Edge ( chakra )
+    - Safari    ( nitro )
+
+
+other environment
+
+    - Node.js   ( v8 )
+    - JVM       ( rhino / nashorn)
+    - ...
+
+----------------------------------------------------    
+
+javascript is based ECMAScript spec
+
+----------------------------------------------------
+
+
+Javascript topics :
+
+
+level-1:
+    - data-types
+    - execution-context a.k.a scopes
+    - functional-programming concepts
+    - OOP
+    - 'this' keyword
+    - data-structures ( array , set , map )
+
+level-2:
+    - ES6 & ES7 features
+
+level-3:
+    - asynchronous-programming
+        - promises
+        - observables-streams
+    - unit-testing    
+    - How javascript executes behind the scenes ( browser | Node.js)
+
+----------------------------------------------------        
