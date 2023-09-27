@@ -1,0 +1,99 @@
+
+
+
+UI = data + style + interactivity
+Web_UI = HTML + CSS + Javascript 
+
+
+why do we need Javascript programs with HTML-page?
+
+using browser provided web-apis, 
+Javascript can bring interactivity with to page
+
+browser-apis -> w3c recommendations, 
+implemented browses natively
+
+E.g DOM,Timer,XHR,...
+
+Using DOM Api
+-------------
+    -> to create/update/delete HTML elements
+    -> to change element's inner-content
+    -> to change element's properties/attributes
+    -> to change element's syle
+    -> to listen event(s) on elements
+
+using Timer Api
+---------------
+    -> to execute some action(s)timeout/time-interval
+
+using XHR Api
+--------------
+    -> to send async http-request to the backend-services
+
+
+------------------------------------------------------------
+
+Front-enddeveloper,
+    - html + CSS + Javascript + browser-apis
+
+------------------------------------------------------------  
+
+
+challenges while using plain-Javascript code with browser-aps
+--------------------------------------------------------------
+
+
+-> browser compatability issues
+-> performance issues ( e.g minimal DOM foot-prints)
+-> memory issues ( i.e clean un-used DOM elements)
+-> too much code
+-> re-usable code
+
+Solution:
+
+    -> by using third-party's lib & f.w
+
+
+1. jquery
+
+
+MVC patterns baesed lib & F.W
+-------------------------------
+
+2. Backbone.js
+3. Knockout.js
+4. Ember.js
+5. dojo
+6. Ext.js ( commercial )
+7. Angular.js  
+
+Component pattern based lib & F.w
+------------------------------------
+
+8. React.js ( lib )
+    8.1. Next.js ( React Framework )
+9. Angular  (our focus ) ( framework)
+10. Vue.js
+
+
+
+------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
