@@ -18,14 +18,14 @@ export class AppComponent {
       image: 'assets/Laptop.png',
       isAvailable: true
     },
-    // {
-    //   id: 2,
-    //   name: 'Mobile',
-    //   price: 1000,
-    //   description: 'Mobile Description',
-    //   image: 'assets/Mobile.png',
-    //   isAvailable: true
-    // }
+    {
+      id: 2,
+      name: 'Mobile',
+      price: 1000,
+      description: 'Mobile Description',
+      image: 'assets/Mobile.png',
+      isAvailable: true
+    }
   ]
 
   currentTab: number = 1
@@ -41,6 +41,7 @@ export class AppComponent {
   handleBuy(event: MouseEvent) {
     console.log(event);
   }
+
 }
 
 
