@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-product',
@@ -8,9 +8,15 @@ import { Component, Input } from '@angular/core';
 export class ProductComponent {
 
   @Input("value")
-  p:any;
+  product:any;
+  @Output()
+  buy: EventEmitter<any> = new EventEmitter<any>();
 
   currentTab: number = 1
+  reviews: Array<any> = [
+    {stars:5,body:"sample review-1",author:"who-1"},
+    {stars:5,body:"sample review-2",author:"who-2"},
+  ];
 
   handleTabChange(index: number) {
     this.currentTab = index
@@ -21,6 +27,10 @@ export class ProductComponent {
   }
 
   handleBuy(event: MouseEvent) {
-    console.log(event);
+    this.buy.emit({
+      id: this.product.id,
+      name: this.product.name,
+      price: this.product.price
+    })
   }
 }

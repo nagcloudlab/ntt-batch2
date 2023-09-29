@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-product-list',
@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class ProductListComponent {
 
+  @Output()
+  buy = new EventEmitter<any>();
 
   products: Array<any> = [
     {
@@ -27,5 +29,8 @@ export class ProductListComponent {
     }
   ]
 
+  handleBuy(event:Event){
+    this.buy.emit(event);
+  }
 
 }

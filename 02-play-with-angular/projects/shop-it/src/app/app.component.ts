@@ -8,6 +8,17 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   title = 'NG-shop-IT';
+  isCartOpen = false;
+  cart:Array<any> = [];
+
+  toggleCart(){
+    this.isCartOpen =!this.isCartOpen;
+  }
+
+  addToCart(event:Event){
+    let cartLine=event;
+    this.cart.push(cartLine);
+  }
 
 
 }

@@ -1,0 +1,27 @@
+
+
+<div class="card">
+    <div class="card-header">Cart</div>
+    <div class="card-body">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cartLine of cart;let idx=index">
+                    <td>{{idx+1}}</td>
+                    <td>{{cartLine.name}}</td>
+                    <td>{{cartLine.price}}</td>
+                    <td>1</td>
+                    <td>{{1*cartLine.price}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
