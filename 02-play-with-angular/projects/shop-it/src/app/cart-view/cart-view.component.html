@@ -1,8 +1,13 @@
 
 
-<div class="card">
-    <div class="card-header">Cart</div>
-    <div class="card-body">
+<app-ntt-card>
+    <div class="header">
+        Cart View
+    </div>
+    <div class="footer">
+        NTT @ 2023
+    </div>
+    <div #cardBody class="body">
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
@@ -14,7 +19,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let cartLine of cart;let idx=index">
+                <tr appHighlight *ngFor="let cartLine of cart;let idx=index">
                     <td>{{idx+1}}</td>
                     <td>{{cartLine.name}}</td>
                     <td>{{cartLine.price}}</td>
@@ -24,4 +29,5 @@
             </tbody>
         </table>
     </div>
-</div>
+
+</app-ntt-card>

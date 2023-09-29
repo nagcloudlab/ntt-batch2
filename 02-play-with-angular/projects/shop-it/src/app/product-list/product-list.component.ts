@@ -14,7 +14,10 @@ export class ProductListComponent {
     {
       id: 1,
       name: 'Laptop',
-      price: 1000000,
+      price: {
+        value:10000,
+        code:'INR'
+      },
       description: 'Laptop Description',
       image: 'assets/Laptop.png',
       isAvailable: true
@@ -22,7 +25,10 @@ export class ProductListComponent {
     {
       id: 2,
       name: 'Mobile',
-      price: 1000,
+      price: {
+        value:10000,
+        code:'INR'
+      },
       description: 'Mobile Description',
       image: 'assets/Mobile.png',
       isAvailable: true

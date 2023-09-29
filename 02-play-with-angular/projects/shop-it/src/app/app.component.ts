@@ -17,7 +17,8 @@ export class AppComponent {
 
   addToCart(event:Event){
     let cartLine=event;
-    this.cart.push(cartLine);
+    //this.cart.push(cartLine); // mutable
+    this.cart=this.cart.concat(cartLine); // immutable
   }
 
 
