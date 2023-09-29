@@ -1,11 +1,16 @@
 <div class="card">
     <div class="card-header">Voting-box</div>
     <div class="card-body">
-        <div class="d-flex justify-content-around">
-            <app-voting-item itemName="React.js"></app-voting-item>
-            <app-voting-item itemName="Angular"></app-voting-item>
+        <div class="d-flex justify-content-around flex-wrap">
+            <app-voting-item 
+                *ngFor="let itemName of votingItems" 
+                [itemName]="itemName"
+                (like)="handleLikeVote($event)"
+                (dislike)="handleDislikeVote($event)"
+                >
+            </app-voting-item>
         </div>
         <hr />
-        <app-voting-table></app-voting-table>
+        <app-voting-table [votingLines]="votingLines"></app-voting-table>
     </div>
 </div>

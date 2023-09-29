@@ -10,15 +10,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Item 1</td>
-                    <td>100</td>
-                    <td>100</td>
-                </tr>
-                <tr>
-                    <td>Item 2</td>
-                    <td>100</td>
-                    <td>100</td>
+                <tr *ngFor="let votingLine of votingLines">
+                    <td>{{votingLine.item}}</td>
+                    <td>{{votingLine.likes}}</td>
+                    <td>{{votingLine.dislikes}}</td>
                 </tr>
             </tbody>
         </table>

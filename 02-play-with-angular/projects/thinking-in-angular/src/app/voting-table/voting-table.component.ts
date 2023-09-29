@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-voting-table',
@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./voting-table.component.css']
 })
 export class VotingTableComponent {
+
+  @Input()
+  votingLines: Array<any> = [];
 
 }
