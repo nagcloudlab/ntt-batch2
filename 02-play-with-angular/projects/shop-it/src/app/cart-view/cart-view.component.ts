@@ -1,4 +1,5 @@
 import { Component, ContentChild, ElementRef, Input, SimpleChanges, ViewChild } from '@angular/core';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-cart-view',
@@ -7,16 +8,16 @@ import { Component, ContentChild, ElementRef, Input, SimpleChanges, ViewChild } 
 })
 export class CartViewComponent {
 
-  @Input()
-  cart!: Array<any>;
+  // cart: Array<any> = []
+  cart$ = this.cartService.cart$
 
   @ContentChild("comp")
   comp!: ElementRef;
 
   @ViewChild("cardBody")
   cardBody!: ElementRef;
-  
-  constructor() { 
+
+  constructor(private cartService: CartService) {
     console.log("CartViewComponent->constructor");
     // why we need -> todo one-time initialization
   }
@@ -28,14 +29,15 @@ export class CartViewComponent {
   ngOnInit() {
     console.log("CartViewComponent->ngOnInit");
     // why we need -> todo one-time initialization
+    // this.cart = this.cartService.getCart();
   }
   ngAfterContentInit() {
     console.log("CartViewComponent->ngAfterContentInit");
-    this.comp.nativeElement.style.color="tomato";
+    this.comp.nativeElement.style.color = "tomato";
   }
   ngAfterViewInit() {
     console.log("CartViewComponent->ngAfterViewInit");
-    this.cardBody.nativeElement.addEventListener("mouseenter",(e:any)=>{
+    this.cardBody.nativeElement.addEventListener("mouseenter", (e: any) => {
       e.target.style.cursor = "pointer";
     })
   }

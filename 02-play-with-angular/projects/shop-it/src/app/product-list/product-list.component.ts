@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -7,36 +8,14 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class ProductListComponent {
 
-  @Output()
-  buy = new EventEmitter<any>();
+  products: Array<any> = []
 
-  products: Array<any> = [
-    {
-      id: 1,
-      name: 'Laptop',
-      price: {
-        value:10000,
-        code:'INR'
-      },
-      description: 'Laptop Description',
-      image: 'assets/Laptop.png',
-      isAvailable: true
-    },
-    {
-      id: 2,
-      name: 'Mobile',
-      price: {
-        value:10000,
-        code:'INR'
-      },
-      description: 'Mobile Description',
-      image: 'assets/Mobile.png',
-      isAvailable: true
-    }
-  ]
+  constructor(private productService: ProductService) { }
 
-  handleBuy(event:Event){
-    this.buy.emit(event);
+  ngOnInit() {
+    this.productService.getProducts()
+      .subscribe((products: any) => this.products = products)
   }
+
 
 }

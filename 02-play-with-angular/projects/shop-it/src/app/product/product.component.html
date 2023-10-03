@@ -7,7 +7,7 @@
     </div>
     <div class="col-8">
         <div>{{product.name|uppercase}}</div>
-        <div>{{product.price.value | discount | currency:product.price.code:true}}</div>
+        <div>{{product.price.value | discount | currency:product.price.code}}</div>
         <button (click)="handleBuy($event)" class="btn btn-dark">Buy</button>
     </div>
     <ul class="nav nav-tabs">
@@ -20,8 +20,7 @@
                 href="#">Specification</a>
         </li>
         <li class="nav-item">
-            <a (click)="handleTabChange(3)" [ngClass]="{'nav-link':true,'active':isTabSelected(3)}"
-                href="#">Reviews</a>
+            <a (click)="handleTabChange(3)" [ngClass]="{'nav-link':true,'active':isTabSelected(3)}" href="#">Reviews</a>
         </li>
     </ul>
     <div *ngIf="isTabSelected(1)">{{product.description}}</div>

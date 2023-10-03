@@ -1,5 +1,3 @@
-
-
 <app-ntt-card>
     <div class="header">
         Cart View
@@ -19,12 +17,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr appHighlight *ngFor="let cartLine of cart;let idx=index">
+                <tr appHighlight *ngFor="let cartLine of cart$|async;let idx=index">
                     <td>{{idx+1}}</td>
                     <td>{{cartLine.name}}</td>
-                    <td>{{cartLine.price}}</td>
+                    <td>{{cartLine.price.value|currency:'INR'}}</td>
                     <td>1</td>
-                    <td>{{1*cartLine.price}}</td>
+                    <td>{{1*cartLine.price|currency:'INR'}}</td>
                 </tr>
             </tbody>
         </table>

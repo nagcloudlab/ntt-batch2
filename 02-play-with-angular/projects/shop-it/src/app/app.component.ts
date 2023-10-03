@@ -9,18 +9,10 @@ export class AppComponent {
 
   title = 'NG-shop-IT';
   isCartOpen = false;
-  cart:Array<any> = [];
 
-  toggleCart(){
-    this.isCartOpen =!this.isCartOpen;
+  toggleCart() {
+    this.isCartOpen = !this.isCartOpen;
   }
-
-  addToCart(event:Event){
-    let cartLine=event;
-    //this.cart.push(cartLine); // mutable
-    this.cart=this.cart.concat(cartLine); // immutable
-  }
-
 
 }
 

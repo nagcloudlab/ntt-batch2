@@ -1,25 +1,33 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { CartService } from '../cart.service';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  styleUrls: ['./product.component.css'],
+  //providers: [CartService] // hirarchical injection
 })
 export class ProductComponent {
 
   @Input("value")
-  product:any;
-  @Output()
-  buy: EventEmitter<any> = new EventEmitter<any>();
-
+  product: any;
   currentTab: number = 1
-  reviews: Array<any> = [
-    {stars:5,body:"sample review-1",author:"who-1"},
-    {stars:5,body:"sample review-2",author:"who-2"},
-  ];
+  reviews: Array<any> | null = [];
+
+  constructor(
+    private cartService: CartService,
+    private productService: ProductService
+  ) { } // dependency injection
 
   handleTabChange(index: number) {
     this.currentTab = index
+    if (this.currentTab === 3) {
+      this.productService.getReviews(this.product.id)
+        .subscribe((reviews: any) => {
+          this.reviews = reviews
+        })
+    }
   }
 
   isTabSelected(index: number): boolean {
@@ -27,10 +35,6 @@ export class ProductComponent {
   }
 
   handleBuy(event: MouseEvent) {
-    this.buy.emit({
-      id: this.product.id,
-      name: this.product.name,
-      price: this.product.price
-    })
+    this.cartService.addToCart(this.product);
   }
 }
