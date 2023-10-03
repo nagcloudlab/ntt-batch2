@@ -1,0 +1,107 @@
+<div class="card">
+    <div class="card-header">Reactive Customer Form</div>
+    <div class="card-body">
+        <form [formGroup]="customerForm" (submit)="handleSubmit()">
+            <button type="button" class="btn btn-dark">Load Customer</button>
+            <hr />
+            <div class="form-group">
+                <label>First Name</label>
+                <input class="form-control" formControlName="firstName" />
+                <div *ngIf="customerForm.controls['firstName'].errors" class="text-danger">
+                    <div
+                        *ngIf="customerForm.controls['firstName'].touched && customerForm.controls['firstName'].errors['required']">
+                        First Name is required
+                    </div>
+                    <div
+                        *ngIf="customerForm.controls['firstName'].touched && customerForm.controls['firstName'].errors['minlength']">
+                        First Name must be at least 3 characters long
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Last Name</label>
+                <input class="form-control" formControlName="lastName" />
+            </div>
+            <ng-container formGroupName="minAndMax">
+                <div class="form-group">
+                    <label>Min</label>
+                    <input class="form-control" formControlName="min" />
+                </div>
+                <div class="form-group">
+                    <label>Max</label>
+                    <input class="form-control" formControlName="max" />
+                </div>
+            </ng-container>
+            <div class="form-group">
+                <label>Email</label>
+                <input class="form-control" formControlName="email" />
+            </div>
+            <div class="form-group">
+                <label>Mobile</label>
+                <input class="form-control" formControlName="mobile" />
+            </div>
+            <div class="form-group">
+                <label>Notification: &nbsp;</label>
+                <input (change)="handleNotiChange('email')" type="radio" formControlName="notiType"
+                    value="email" />Email
+                <input (change)="handleNotiChange('sms')" type="radio" formControlName="notiType" value="sms" />SMS
+            </div>
+            <!-- <div class="form-group">
+                <label>Country</label>
+                <select formControlName="country" class="form-control">
+                    <option *ngFor="let country of countries" [value]="country">
+                        {{country}}
+                    </option>
+                </select>
+            </div> -->
+            <hr />
+            <button type="button" class="btn btn-danger" (click)="handleNewAddress()">Add New Address</button>
+            <hr />
+            <div formArrayName="addressFormArray">
+                <div class="card" *ngFor="let group of addressFormArray.controls;let i=index" [formGroup]="group">
+                    <div class="card-header">Address - {{i}}
+                        <button (click)="handleRemoveAddress(i)" class="btn btn-sm btn-danger">-</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label class="form-control-label">City</label>
+                            <input formControlName="city" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label">Zip</label>
+                            <input formControlName="zip" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label">Country</label>
+                            <input formControlName="country" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-dark">Submit</button>
+            <hr />
+        </form>
+        <hr />
+        <pre>
+            <hr/>
+            Form Model
+            {{ customerForm.value|json}}
+            <hr/>
+            Form Group ( e.g customerForm )
+            is pristine  : {{ customerForm.pristine}}
+            is dirty     : {{ customerForm.dirty}}
+            is invalid   : {{ customerForm.invalid}}
+            is valid     : {{ customerForm.valid}}
+            is untouched : {{ customerForm.untouched}}
+            is touched   : {{ customerForm.touched}}
+            <hr/>
+            Form Control ( e.g lastName )
+            is pristine  : {{ customerForm.controls['lastName'].pristine}}
+            is dirty     : {{ customerForm.controls['lastName'].dirty}}
+            is invalid   : {{ customerForm.controls['lastName'].invalid}}
+            is valid     : {{ customerForm.controls['lastName'].valid}}
+            is untouched : {{ customerForm.controls['lastName'].untouched}}
+            is touched   : {{ customerForm.controls['lastName'].touched}}
+        </pre>
+    </div>
+</div>
