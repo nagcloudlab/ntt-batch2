@@ -13,6 +13,8 @@ import { NttCardComponent } from './ntt-card/ntt-card.component';
 import { HighlightDirective } from './highlight.directive';
 import { DiscountPipe } from './discount.pipe';
 import { CartService } from './cart.service';
+import { ReviewFormComponent } from './review-form/review-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,11 +27,13 @@ import { CartService } from './cart.service';
     CartViewComponent,
     NttCardComponent,
     HighlightDirective,
-    DiscountPipe
+    DiscountPipe,
+    ReviewFormComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     // CartService

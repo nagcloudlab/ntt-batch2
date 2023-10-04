@@ -8,8 +8,8 @@ import { CartService } from '../cart.service';
 })
 export class CartViewComponent {
 
-  // cart: Array<any> = []
-  cart$ = this.cartService.cart$
+  cart: Array<any> = []
+  // cart$ = this.cartService.cart$
 
   @ContentChild("comp")
   comp!: ElementRef;
@@ -30,6 +30,9 @@ export class CartViewComponent {
     console.log("CartViewComponent->ngOnInit");
     // why we need -> todo one-time initialization
     // this.cart = this.cartService.getCart();
+    this.cartService.cart$.subscribe(cart=>{
+      this.cart = cart;
+    })
   }
   ngAfterContentInit() {
     console.log("CartViewComponent->ngAfterContentInit");

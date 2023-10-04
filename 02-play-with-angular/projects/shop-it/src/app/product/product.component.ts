@@ -13,7 +13,7 @@ export class ProductComponent {
   @Input("value")
   product: any;
   currentTab: number = 1
-  reviews: Array<any> | null = [];
+  reviews: Array<any> = [];
 
   constructor(
     private cartService: CartService,
@@ -36,5 +36,11 @@ export class ProductComponent {
 
   handleBuy(event: MouseEvent) {
     this.cartService.addToCart(this.product);
+  }
+
+  handleNewReview(event:any) {
+    let {formData} = event
+    this.productService.postNewReview(this.product.id,formData)
+    .subscribe((review:any) => this.reviews.push(review))
   }
 }
