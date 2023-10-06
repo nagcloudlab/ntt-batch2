@@ -8,12 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   title = 'NG-shop-IT';
-  isCartOpen = false;
-
-  toggleCart() {
-    this.isCartOpen = !this.isCartOpen;
-  }
-
+  date:Date=new Date();
+  
 }
 
 

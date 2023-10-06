@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body class="container">
+
+    <div class="row">
+        <div class="col-4">
+            <div class="display-1">
+                <img class="img-fluid" src="images/todo_logo.gif" alt="Todo" />
+            </div>
+        </div>
+    </div>
+    <hr />
+
+    <div class="row">
+        <div class="col-6">
+            <form id="todoForm" action="todos" method="post">
+                <input name="title" placeholder="What needs to be done?" class="form-control" />
+                <button type="submit">Add</button>
+            </form>
+        </div>
+    </div>
+
+
+    <hr />
+    <button class="btn btn-danger" id="top5TodosBtn">Load todos</button>
+    <hr />
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Completed</th>
+            </tr>
+        <tbody id="todos">
+        </tbody>
+    </table>
+
+    <hr />
+
+    <script src="./javascript/index.js"></script>
+
+</body>
+
+</html>

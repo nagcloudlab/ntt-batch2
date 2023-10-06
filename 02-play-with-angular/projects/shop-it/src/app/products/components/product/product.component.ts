@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { CartService } from '../cart.service';
-import { ProductService } from '../product.service';
+import { ProductService } from '../../services/product.service';
+import { CartService } from '../../../cart/services/cart.service';
 
 @Component({
   selector: 'app-product',
@@ -20,7 +20,8 @@ export class ProductComponent {
     private productService: ProductService
   ) { } // dependency injection
 
-  handleTabChange(index: number) {
+  handleTabChange(index: number,event:MouseEvent) {
+    event.preventDefault();
     this.currentTab = index
     if (this.currentTab === 3) {
       this.productService.getReviews(this.product.id)

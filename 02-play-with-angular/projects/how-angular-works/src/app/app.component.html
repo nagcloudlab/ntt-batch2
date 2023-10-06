@@ -1,0 +1,41 @@
+
+
+
+<div class="container">
+  <div class="display-1">How Angular Works</div>
+  <hr/>
+
+
+  Time Now: {{currentTime|date:'hh:mm:ss a'}}
+
+  <hr/>
+
+  <div><button (click)="handleChangeName()">Change Name</button> ->
+    {{myName}}
+  </div>
+
+  <hr/>
+
+  <button (click)="handleTop5Todos()">Top-5-todos</button>
+  <ul>
+    <li *ngFor="let todo of todos">
+      {{todo|json}}
+    </li>
+  </ul>
+  <hr/>
+
+
+  <button (click)="handler1()" class="btn btn-lg btn-dark">
+    (in Zone) - {{count1}}
+  </button>
+
+  <button (click)="handler2()" class="btn btn-lg btn-dark">
+    (out Zone) - {{count2}}
+  </button>
+
+  <hr/>
+
+
+
+
+</div>

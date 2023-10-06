@@ -2,14 +2,26 @@
    <app-navbar [title]="title"></app-navbar>
    <ul class="nav nav-pills">
       <li class="nav-item">
-         <a class="nav-link active" (click)="toggleCart()" href="#">
-            {{isCartOpen?'products':'cart'}}
+         <a class="nav-link" href="/">
+           Home
          </a>
+      </li>
+         <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" routerLink="/products/elec">Elec_Products</a>
+         </li>
+      <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" routerLink="/products/other">Other_Products</a>
+      </li>
+      <li class="nav-item">
+         <a class="nav-link" routerLinkActive="active" routerLink="/cart">Cart</a>
+      </li>
+      <li class="nav-item">
+         <a class="nav-link" routerLinkActive="active" routerLink="/orders">Orders</a>
       </li>
    </ul>
    <hr />
-   <app-cart-view *ngIf="isCartOpen">
-      <div #comp>NTT</div>
-   </app-cart-view>
-   <app-product-list *ngIf="!isCartOpen"></app-product-list>
+
+   <p-calendar [(ngModel)]="date"></p-calendar>
+   <router-outlet></router-outlet>
+   
 </div>
