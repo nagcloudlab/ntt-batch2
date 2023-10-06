@@ -1,0 +1,7 @@
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="todoForm">
+            <input formControlName="title" class="form-control" (keyup)="handleKeyup($event)" />
+        </form>
+    </div>
+</div>

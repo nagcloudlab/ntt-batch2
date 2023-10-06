@@ -1,0 +1,33 @@
+<h1 class="display-1">NTT</h1>
+
+<hr />
+
+<div class="row">
+    <div class="col-6">
+        <form id="todoForm" action="todos" method="post">
+            <input name="title" placeholder="What needs to be done?" class="form-control" />
+            <button type="submit">Add</button>
+        </form>
+    </div>
+</div>
+
+</hr>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Completed</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each todos}}
+        <tr>
+            <td>{{this.id}}</td>
+            <td>{{this.title}}</td>
+            <td>{{this.completed}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
